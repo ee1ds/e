@@ -11,89 +11,120 @@ int main()
 	int enter = 0;
 	int n = 0;
 	scanf("%d %d %d", &year, &month, &day);
-    if(year%4==0)
+    if(year%4==0){
 		run = 1;
-	for(int i=1;i<year-1901;i++){
+	}
+	for(int i=0;i<year-1900;i++){
 		sum += 365;
 	}
-	sum += (year - 1901) / 4;
+	if (year==1900){
+		sum += 48;
+	}
+	if(year>1900){
+	sum += (year - 1900) / 4;
+	sum += 3;
+	}
 	if(run==1){
 	switch(month){
 		case 1:
 			sum += 0;
 			n = 31;
+			break;
 		case 2:
 		    sum += 31;
 			n = 29;
+			break;
 		case 3:
 			sum += 60;
 			n = 31;
+			break;
 		case 4:
 			sum += 91;
 			n = 30;
+			break;
 		case 5:
 			sum += 121;
 			n = 31;
+			break;
 		case 6:
 			sum += 152;
 			n = 30;
+			break;
 		case 7:
 			sum += 182;
 			n = 31;
+			break;
 		case 8:
 			sum += 213;
 			n = 31;
+			break;
 		case 9:
 			sum += 244;
 			n = 30;
+			break;
 		case 10:
 			sum += 274;
 			n = 31;
+			break;
 		case 11:
 			sum += 305;
 			n = 30;
+			break;
 		case 12:
 			sum += 335;
 			n = 31;
+			break;
 	}
 	}else if(run==0){
     	switch(month){
 		case 1:
 			sum += 0;
 			n = 31;
+			break;
 		case 2:
 		    sum += 31;
 			n = 28;
+			break;
 		case 3:
 			sum += 59;
 			n = 31;
+			break;
 		case 4:
 			sum += 90;
 			n = 30;
+			break;
 		case 5:
 			sum += 120;
 			n = 31;
+			break;
 		case 6:
 			sum += 151;
 			n = 30;
+			break;
 		case 7:
 			sum += 181;
 			n = 31;
+			break;
 		case 8:
 			sum += 212;
 			n = 31;
+			break;
 		case 9:
 			sum += 243;
 			n = 30;
+			break;
 		case 10:
 			sum += 273;
 			n = 31;
+			break;
 		case 11:
 			sum += 304;
 			n = 30;
+			break;
 		case 12:
 			sum += 334;
 			n = 31;
+			break;
 	}
 	sum = sum + day;
 	week = sum % 7;
