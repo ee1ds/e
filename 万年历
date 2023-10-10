@@ -1,5 +1,4 @@
 #include<stdio.h>
-
 int main()
 {
 	int year = 0;
@@ -7,22 +6,19 @@ int main()
 	int day = 0;
 	int run = 0;
 	int week = 0;
-	int sum=1;
+	int sum=0;
 	int enter = 0;
 	int n = 0;
 	scanf("%d %d %d", &year, &month, &day);
-    if(year%4==0){
+    if(year%4==0&&year!=1900){
 		run = 1;
 	}
-	for(int i=0;i<year-1900;i++){
-		sum += 365;
-	}
-	if (year==1900){
-		sum += 48;
-	}
-	if(year>1900){
-	sum += (year - 1900) / 4;
-	sum += 3;
+	for(int i=1900;i<year;i++){
+		if((i-1)%4==0&&(i-1)!=1900){
+			sum += 366;
+		}else{
+			sum += 365;
+		}
 	}
 	if(run==1){
 	switch(month){
@@ -126,10 +122,11 @@ int main()
 			n = 31;
 			break;
 	}
-	sum = sum + day;
+	}
 	week = sum % 7;
+	sum = sum + day;
 	printf("%d %d\n", year, month);
-	printf("日	一	二	三	四	五	六\n");
+	printf("一	二	三	四	五	六 	日\n");
 	for (int n = 0; n < week; n++)
 	{ 
 			printf("	");
@@ -146,5 +143,4 @@ int main()
 			printf("%d	",j);
 			enter++;	
 		}
-	}
 }
