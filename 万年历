@@ -1,0 +1,119 @@
+#include<stdio.h>
+
+int main()
+{
+	int year = 0;
+	int month = 0;
+	int day = 0;
+	int run = 0;
+	int week = 0;
+	int sum=1;
+	int enter = 0;
+	int n = 0;
+	scanf("%d %d %d", &year, &month, &day);
+    if(year%4==0)
+		run = 1;
+	for(int i=1;i<year-1901;i++){
+		sum += 365;
+	}
+	sum += (year - 1901) / 4;
+	if(run==1){
+	switch(month){
+		case 1:
+			sum += 0;
+			n = 31;
+		case 2:
+		    sum += 31;
+			n = 29;
+		case 3:
+			sum += 60;
+			n = 31;
+		case 4:
+			sum += 91;
+			n = 30;
+		case 5:
+			sum += 121;
+			n = 31;
+		case 6:
+			sum += 152;
+			n = 30;
+		case 7:
+			sum += 182;
+			n = 31;
+		case 8:
+			sum += 213;
+			n = 31;
+		case 9:
+			sum += 244;
+			n = 30;
+		case 10:
+			sum += 274;
+			n = 31;
+		case 11:
+			sum += 305;
+			n = 30;
+		case 12:
+			sum += 335;
+			n = 31;
+	}
+	}else if(run==0){
+    	switch(month){
+		case 1:
+			sum += 0;
+			n = 31;
+		case 2:
+		    sum += 31;
+			n = 28;
+		case 3:
+			sum += 59;
+			n = 31;
+		case 4:
+			sum += 90;
+			n = 30;
+		case 5:
+			sum += 120;
+			n = 31;
+		case 6:
+			sum += 151;
+			n = 30;
+		case 7:
+			sum += 181;
+			n = 31;
+		case 8:
+			sum += 212;
+			n = 31;
+		case 9:
+			sum += 243;
+			n = 30;
+		case 10:
+			sum += 273;
+			n = 31;
+		case 11:
+			sum += 304;
+			n = 30;
+		case 12:
+			sum += 334;
+			n = 31;
+	}
+	sum = sum + day;
+	week = sum % 7;
+	printf("%d %d\n", year, month);
+	printf("日	一	二	三	四	五	六\n");
+	for (int n = 0; n < week; n++)
+	{ 
+			printf("	");
+			enter++;
+		} 
+    for(int j=1;j<=n;j++){
+			if(enter%7==0){
+				
+				printf("\n");
+			}
+			if(j==day){
+				printf("*");
+			}
+			printf("%d	",j);
+			enter++;	
+		}
+	}
+}
